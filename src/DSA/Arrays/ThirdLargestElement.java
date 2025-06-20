@@ -1,4 +1,4 @@
-package Learn_Coding.Arrays;
+package DSA.Arrays;
 
 /*
 Using Three Loops – O(n) time and O(1) space
@@ -7,7 +7,7 @@ second maximum element and then excluding them both find the third maximum eleme
 the maximum element excluding the maximum and second maximum.
 
 
-Step by step approach:
+Step-by-step approach:
 
 First, iterate through the array and find maximum.
 Store this as first maximum along with its index.
@@ -24,23 +24,22 @@ public class ThirdLargestElement {
     }
 
     static int getThirdLargest(int[] arr) {
-        int n = arr.length;
         int first = Integer.MIN_VALUE;
-        for (int i = 0; i < n; i++) {
-            if (arr[i] > first) {
-                first = arr[i];
+        for (int k : arr) {
+            if (k > first) {
+                first = k;
             }
         }
         int second = Integer.MIN_VALUE;
-        for (int i = 0; i < n; i++) {
-            if (arr[i] < first && arr[i] > second) {
-                second = arr[i];
+        for (int k : arr) {
+            if (k < first && k > second) {
+                second = k;
             }
         }
         int third=Integer.MIN_VALUE;
-        for(int i=0;i<n;i++){
-            if(arr[i]<second && arr[i]>third){
-                third=arr[i];
+        for (int j : arr) {
+            if (j < second && j > third) {
+                third = j;
             }
         }
       return third;

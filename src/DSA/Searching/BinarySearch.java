@@ -1,4 +1,4 @@
-package DSA;
+package DSA.Searching;
 //Binary search Iterative method
 
 /*Binary search is a searching technique. Binary Search follows divide and conquer method i.e. if the

@@ -1,4 +1,4 @@
-package Learn_Coding.Arrays;
+package DSA.Arrays;
 /*
 Given an array of integers arr[], the task is to move all the zeros to the end of the
 array while maintaining the relative order of all non-zero elements.

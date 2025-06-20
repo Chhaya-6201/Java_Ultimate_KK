@@ -1,10 +1,10 @@
-package DSA;
+package DSA.Searching;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class FindAllMissing {
-    public List<Integer> findDisappearedNumbers(int[] nums) {
+    public  static List<Integer> findDisappearedNumbers(int[] nums) {
             int i = 0;
             while (i < nums.length) {
                 int correct = nums[i] - 1;
@@ -28,5 +28,11 @@ public class FindAllMissing {
             nums[first]=nums[second];
             nums[second]=temp;
         }
+
+    public static void main(String[] args) {
+        int[] arr={1,3,5,6,7,8};
+        List<Integer> ans= findDisappearedNumbers(arr);
+        System.out.println(ans);
+    }
     }
 

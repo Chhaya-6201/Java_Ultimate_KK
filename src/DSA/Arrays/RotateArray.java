@@ -1,4 +1,4 @@
-package Learn_Coding.Arrays;
+package DSA.Arrays;
 /*
 Given an array of integers arr[] of size n, the task is to rotate the array
 elements to the left by d positions.
@@ -43,8 +43,8 @@ public class RotateArray {
 Using Reversal Algorithm – O(n) Time and O(1) Space
 The idea is based on the observation that if we left rotate the array by d positions, the last (n – d) elements will be at the front
 and the first d elements will be at the end.
-Reverse the subarray containing the first d elements of the array.
-Reverse the subarray containing the last (n – d) elements of the array.
+Reverse the sub-array containing the first d elements of the array.
+Reverse the sub-array containing the last (n – d) elements of the array.
 Finally, reverse all the elements of the array.
  */
 /*

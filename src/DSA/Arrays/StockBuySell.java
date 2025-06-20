@@ -1,4 +1,4 @@
-package Learn_Coding.Arrays;/*
+package DSA.Arrays;/*
 Stock Buy and Sell – Max one Transaction Allowed
 
 Given an array prices[] of length N, representing the prices of the stocks on different days,
@@ -31,7 +31,7 @@ The idea is to use two nested loops to explore all the possible ways to buy and 
 The outer loop decides the day to buy the stock and the inner loop decides the day to sell the stock.
 The maximum difference between the selling
 price and buying price between every pair of days will be our answer.
-package Learn_Coding.Arrays;*/
+package DSA.Arrays;*/
 
 public class StockBuySell {
     public static void main(String[] args) {
@@ -40,7 +40,7 @@ public class StockBuySell {
        System.out.println(ans);
 
     }
-    static int maxProfit(int[] prices){
+
 //        int n=prices.length;
 //        int res=0;
 //        for(int i=0;i<n-1;i++){
@@ -48,6 +48,7 @@ public class StockBuySell {
 //                res=Math.max(res,prices[j]-prices[i]);
 //            }
 //        }
+    static int maxProfit(int[] prices){
         int minSoFar=prices[0];
         int res=0;
         int n= prices.length;

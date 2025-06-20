@@ -1,4 +1,4 @@
-package Learn_Coding.Arrays;
+package DSA.Arrays;
 
 import java.util.ArrayList;
 import java.util.HashSet;

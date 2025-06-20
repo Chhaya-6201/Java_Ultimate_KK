@@ -1,6 +1,4 @@
-package DSA;
-
-import java.util.Arrays;
+package DSA.Searching;
 
 public class MissingNumber {
     public static void main(String[] args) {

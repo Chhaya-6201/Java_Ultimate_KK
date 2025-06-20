@@ -1,4 +1,4 @@
-package DSA;
+package DSA.Sorting;
 
 import java.util.Arrays;
 
@@ -13,7 +13,7 @@ public class SelectionSort {
         for(int i=0;i<arr.length;i++){
             //find the max item in the remaining array and swap with correct index
             int last=arr.length-i-1;
-            int maxIndex=getMaxIndex(arr,0,last);
+            int maxIndex=getMaxIndex(arr, last);
             swap(arr,maxIndex,last);
         }
     }
@@ -23,9 +23,10 @@ public class SelectionSort {
         arr[second]=temp;
 
     }
-    static int getMaxIndex(int[] arr,int start,int end){
-        int max=start;
-        for(int i=start;i<=end;i++){
+    //int start tha yha
+    static int getMaxIndex(int[] arr, int end){
+        int max= 0;
+        for(int i = 0; i<=end; i++){
             if(arr[max]<arr[i]){
                 max=i;
             }

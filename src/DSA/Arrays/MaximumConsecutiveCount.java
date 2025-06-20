@@ -1,4 +1,4 @@
-package Learn_Coding.Arrays;
+package DSA.Arrays;
 /*
 Maximum consecutive one’s (or zeros) in a binary array
 Given an array arr[] consisting of only 0’s and 1’s, the task is to find the count of a maximum
@@ -7,9 +7,9 @@ number of consecutive 1’s or 0’s present in the array.
 Input: arr[] = {1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1}
 Output: 4
 Explanation: The maximum number of consecutive 1’s in the array is 4 from index 8-11.
-*/
 
-/*
+
+
 Using Simple Traversal – O(n) Time and O(1) Space
 The idea is to traverse the array while keeping track of the current streak of consecutive 1s or 0s. If the sequence is broken, update the maximum count and reset the current count.
 
@@ -43,9 +43,9 @@ public class MaximumConsecutiveCount {
         return Math.max(maxCount,count);
     }
 
-   */
 
-    /*
+
+
    Using Bit Manipulation – O(n) Time and O(1) Space
    The idea is to use XOR (^) to check if consecutive elements are the same. If prev ^ num == 0,
    the sequence continues; otherwise, reset the count.
@@ -56,10 +56,11 @@ public class MaximumConsecutiveCount {
    Initialize maxCount, count, and set previous to -1.
    Traverse the list, use XOR (^) to check if the current element matches previous.
    If the result is 0, increment count; otherwise, update maxCount and reset count.
-   At the end, return the maximum of maxCount and count*/
+   At the end, return the maximum of maxCount and count
+   */
     public static void main(String[] args) {
-        int[] nums={1,1,1,1,1,1,1};
-        int ans=maxConsecutiveCount(nums);
+        int[] num={1,1,1,1,1,1,1};
+        int ans=maxConsecutiveCount(num);
         System.out.println(ans);
     }
 

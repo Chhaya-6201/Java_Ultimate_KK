@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class HashMap3 {
     public static void main(String[] args) {
-        String str="cchhayya";
+        String str="chhaya";
         char ch=findFirstNonRepeatingCharacter(str);
         System.out.println(ch);
     }
