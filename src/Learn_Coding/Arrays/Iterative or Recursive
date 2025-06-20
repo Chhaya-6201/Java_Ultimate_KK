@@ -1,0 +1,79 @@
+Great question! The short answer is:
+**Not always** — using recursion **does not guarantee** better time complexity than an iterative approach. In fact, recursion can sometimes be **worse** due to function call overhead and redundant computations, **unless** it's optimized with techniques like **memoization**.
+
+However, there **are cases** where recursion combined with optimization can give you a better solution than naive iteration.
+
+---
+
+### ✅ Example Where Recursion is Better (with Memoization)
+
+**Fibonacci Number:**
+
+#### Iterative Approach (naive)
+```java
+int fibonacci(int n) {
+    if (n <= 1) return n;
+    int a = 0, b = 1, c = 0;
+    for (int i = 2; i <= n; i++) {
+        c = a + b;
+        a = b;
+        b = c;
+    }
+    return c;
+}
+```
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(1)`
+
+#### Recursive (without memoization – bad!)
+```java
+int fib(int n) {
+    if (n <= 1) return n;
+    return fib(n - 1) + fib(n - 2);
+}
+```
+**Time Complexity:** `O(2^n)` – exponential and very slow!
+
+#### Recursive with Memoization (Good!)
+```java
+Map<Integer, Integer> memo = new HashMap<>();
+
+int fib(int n) {
+    if (n <= 1) return n;
+    if (memo.containsKey(n)) return memo.get(n);
+    int result = fib(n - 1) + fib(n - 2);
+    memo.put(n, result);
+    return result;
+}
+```
+**Time Complexity:** `O(n)`
+**Space Complexity:** `O(n)`
+✅ As good as iterative but much cleaner for some problems.
+
+---
+
+### ✅ Example Where Recursion Shines: Tree Traversals
+
+For problems like tree traversal (DFS), recursion naturally fits and can be cleaner:
+
+#### Recursive Inorder Traversal
+```java
+void inorder(TreeNode root) {
+    if (root == null) return;
+    inorder(root.left);
+    System.out.print(root.val + " ");
+    inorder(root.right);
+}
+```
+
+Writing this iteratively requires a stack and is more complex.
+So here recursion gives **same time complexity**, but better readability.
+
+---
+
+### 🔥 Bottom Line:
+
+- **Recursion ≠ faster by default.**
+- **Use recursion + memoization** in problems with overlapping subproblems (like DP).
+- In problems like tree/graph traversal or backtracking, recursion gives **cleaner and manageable** code.
+- Iteration is generally more **space-efficient**.

@@ -1,0 +1,153 @@
+GFG
+https://www.geeksforgeeks.org/introduction-to-hashing-2/?ref=lbp
+
+### ✅ **What is `HashSet` in Java?**
+
+A `HashSet` is a **collection** that:
+- Stores **unique elements only**
+- Uses **hashing** internally for **fast operations**
+- Does **not maintain insertion order**
+
+It is backed by a `HashMap` where:
+- The element is the **key**
+- The value is just a placeholder (like a dummy object)
+
+---
+
+### 💡 How does it prevent duplicates?
+
+When you try to add an element:
+
+1. `HashSet` **calls the `hashCode()`** of the element.
+2. Then it checks:
+   👉 **Is any existing element already at that hash code index**?
+3. If found, it then calls **`equals()`** to check if it’s truly equal.
+4. If equal: it **doesn’t add** the element again.
+5. If not: it adds it as a new item (in case of hash collision).
+---
+### 🔁 Example:
+
+```java
+import java.util.HashSet;
+
+public class HashSetExample {
+    public static void main(String[] args) {
+        HashSet<String> fruits = new HashSet<>();
+        fruits.add("apple");
+        fruits.add("banana");
+        fruits.add("apple"); // duplicate
+
+        System.out.println(fruits); // Output: [banana, apple] or [apple, banana]
+    }
+}
+```
+
+- `"apple"` is added once.
+- When trying to add `"apple"` again:
+  - `hashCode()` matches
+  - `equals()` returns `true`
+  - So, **it's not added** again
+
+---
+
+### 👀 Behind the Scenes:
+Internally, this is what happens:
+```java
+map.put("apple", PRESENT); // under the hood of HashSet
+```
+
+Where `PRESENT` is just a dummy object used by HashSet.
+
+---
+
+### 📌 Key Points:
+
+| Feature             | HashSet                      |
+|---------------------|-------------------------------|
+| Allows Duplicates   | ❌ No                         |
+| Maintains Order     | ❌ No                         |
+| Time Complexity     | O(1) for add, remove, contains |
+| Based on            | `HashMap`                    |
+
+--
+
+Hashing is useful in
+
+Search }
+Insert } ---->  All three operations in constant time O(1)
+Delete }
+
+Hashing is not useful in
+
+Finding the closest value }
+                          }----> Done by AVL Trees or Red Black Trees
+Sorted Data               }
+
+Prefix Searching          -----> Trie
+
+Sure! Let's break down the concept of **Hashing** in a simple way:
+
+---
+## 🔑 What is Hashing?
+
+**Hashing** is a technique used to **convert data (like a key)** into a **fixed-size number**
+(called a **hash code** or **hash value**) using a **hash function**.
+This number is then used as an **index** to store or retrieve data quickly in a data structure
+like a **hash table** or **HashMap**.
+---
+## 🧠 Why use Hashing?
+
+- ✅ **Fast data access** — Typically **O(1)** time complexity.
+- ✅ Great for large datasets.
+- ✅ Used in databases, compilers, caches, and cryptography.
+
+---
+
+## 📦 How it works (step-by-step):
+
+1. **You provide a key** — e.g., `"apple"`.
+2. **Hash function** is applied — converts `"apple"` into a hash code, say `203`.
+3. **Modulo operation** — hash code `% size of table` gives you the index:
+   `203 % 10 = 3`
+4. The value is stored at index 3 in an array.
+
+---
+
+## ⚠️ Collisions
+
+Two different keys might get the same hash index. This is called a **collision**.
+
+### 🛠 How to handle collisions:
+1. **Chaining** — Store a list at each index (Java's `HashMap` does this).
+2. **Open Addressing** — Find another empty slot (used in `HashSet` sometimes).
+
+---
+
+## 🧪 Example
+
+```java
+import java.util.HashMap;
+
+public class HashingExample {
+    public static void main(String[] args) {
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("apple", 10);
+        map.put("banana", 20);
+        System.out.println(map.get("apple")); // 10
+    }
+}
+```
+
+Here:
+- `"apple"` is converted into a hash code.
+- The value `10` is stored at the index based on that hash code.
+- When you `get("apple")`, the same hash is calculated, and the value is found quickly.
+
+---
+
+## 🧮 Real-life Analogy
+
+Think of **hashing** like a **library catalog**. You search for a book name → it’s converted into a code → the code points to the shelf where the book is.
+
+---
+

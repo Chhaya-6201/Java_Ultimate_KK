@@ -1,0 +1,81 @@
+An array stores items (in case of C/C++ and Java Primitive Arrays)
+or their references (in case of Python, JS, Java Non-Primitive) at contiguous locations.
+
+Awesome! Let's visualize memory for both **primitive** and **non-primitive** arrays . 👇
+### ✅ **1. Primitive Array (like in C/C++ or Java)**
+
+```java
+int[] arr = {10, 20, 30, 40};
+```
+
+📦 **Memory Layout** (all data is side-by-side):
+
+```
+Memory Address   Value
+  1000           10
+  1004           20
+  1008           30
+  1012           40
+```
+
+- Each value (int) takes 4 bytes.
+- All values are stored **contiguously**.
+- You can calculate the address of `arr[i]` as: `base_address + i * size_of_element`.
+
+---
+
+### ✅ **2. Non-Primitive Array (Java Strings, Python lists, JS arrays)**
+
+```java
+String[] arr = {"apple", "banana", "cherry"};
+```
+
+📦 **Memory Layout** (references are contiguous, objects are separate):
+
+```
+Array Reference Block:
+Memory Address   Points To
+  2000           →  3000  ("apple")
+  2008           →  3040  ("banana")
+  2016           →  3080  ("cherry")
+
+Heap (Object Block):
+Memory Address   Value
+  3000           "apple"
+  3040           "banana"
+  3080           "cherry"
+```
+
+- The **array itself** stores references (`addresses`) contiguously.
+- The **actual objects (strings)** are stored somewhere else in heap memory.
+- Accessing `arr[i]` gets the reference, then follows it to get the actual object.
+
+---
+
+### 🧠 Summary Diagram
+
+#### Primitive Array (C/Java int[]):
+```
+| 10 | 20 | 30 | 40 |     ← Actual values stored contiguously
+```
+
+#### Non-Primitive Array (Python/Java String[]):
+```
+| ref → | ref → | ref → |     ← Contiguous references
+   ↓       ↓       ↓
+"apple" "banana" "cherry"   ← Objects stored elsewhere
+```
+
+It offers mainly the following advantages over other data structures.
+
+Random Access : i-th item can be accessed in O(1) Time as we have the base address
+and every item or reference is of same size.
+
+Cache Friendliness : Since items / references are stored at contiguous locations, we get the advantage
+of locality of reference.
+
+It is not useful in places where we have operations like insert in the middle,
+delete from middle and search in an unsorted data.
+
+It is a fundamental and linear data structure using which we build other data structures like
+Stack Queue, Deque, Graph, Hash Table, etc.
